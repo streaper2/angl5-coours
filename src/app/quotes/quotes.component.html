@@ -1,4 +1,4 @@
 <p>Notre petit module de quotes</p>
 <ul>
-  <li *ngFor="let quote of quotes$ | async"> {{ quote.text }} </li>
+    <li *ngFor="let quote of quotes$ | async" (click)="showQuoteDetails(quote)"> {{ quote.text }} </li>
 </ul>
