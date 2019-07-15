@@ -22,6 +22,9 @@ export class BackendQuotesComponent implements OnInit {
   }
 
   showQuoteDetails(quote) {
-    console.log('clik');
+    console.log('clik', quote);
+  }
+  toggleToEditMode(quote){
+    return this.quotesServices.editQuote(quote);
   }
 }

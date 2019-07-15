@@ -23,7 +23,7 @@ export class BackendHomeComponent implements OnInit {
   }
 
   onQuoteUpdated(quote){
-    console.log("quote update", quote);
+    console.log('quote update', quote);
     this.quotesService.updateQuote({
       firstname: quote.value.firstname,
       lastname: quote.value.lastname,

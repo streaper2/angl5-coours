@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { map } from "rxjs/operators";
-import { Subject } from "rxjs/Subject";
+import { map } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuotesService {
+  subject = new Subject();
 
   constructor(private afdb: AngularFireDatabase) { }
 
@@ -27,6 +28,9 @@ export class QuotesService {
     return this.afdb.list('quotes').remove(id);
   }
 
+  editQuote(quote){
+    this.subject.next(quote);
+  }
   updateQuote(quote){
     return this.afdb.object(`quotes/${quote.key}`).update(quote);
   }
